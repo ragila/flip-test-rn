@@ -1,79 +1,116 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Flip Test
 
-# Getting Started
+## Overview
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+The Flip Transaction Application testing needs
 
-## Step 1: Start the Metro Server
+## Features
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+### 1. Transaction List Page
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **Display Transactions**: Shows a list of transactions with key details such as sender bank, beneficiary bank, beneficiary name, amount, date, and status.
 
-```bash
-# using npm
-npm start
+### 2. Detail Page
 
-# OR using Yarn
-yarn start
+- **Transaction Details**: Displays comprehensive information about the selected transaction, including all available fields.
+
+### 3. Performance Optimization
+
+- **Debounced Search**: Implements a debounce mechanism to optimize search performance and reduce unnecessary re-renders.
+- **Memoization**: Uses `useMemo` to memoize filtered and sorted transaction lists, improving rendering efficiency.
+
+## Technologies Used
+
+- **React Native**: For building cross-platform mobile applications.
+- **TypeScript**: Provides static typing for better code quality and maintenance.
+- **React Navigation**: Handles navigation between screens.
+- **Custom Hooks**: Implements `useTransactions` and `useDebounce` for state and performance management.
+- **No External Utility Libraries**: All date and string manipulations are performed using native JavaScript methods to meet project requirements.
+
+## Project Structure
+
+```
+src/
+├── components/
+│   └── SortModal.tsx           # Modular component for the sorting modal
+├── hooks/
+│   ├── useDebounce.ts          # Custom hook for debouncing functions
+│   └── useTransactions.ts      # Custom hook for fetching transactions
+├── screens/
+│   ├── DetailPage.tsx          # Screen displaying transaction details
+│   └── TransactionListPage.tsx # Screen displaying the list of transactions
+├── utils/
+│   └── helpers/
+│       └── textFormatter.ts    # Utility functions for text formatting
+└── App.tsx                     # Entry point of the application
 ```
 
-## Step 2: Start your Application
+## Installation and Setup
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+### Prerequisites
 
-### For Android
+- **Node.js** (version 12 or higher)
+- **npm** or **yarn**
+- **React Native CLI**
+- **Android Studio** or **Xcode** (for running on emulators or physical devices)
 
-```bash
-# using npm
-npm run android
+### Steps
 
-# OR using Yarn
-yarn android
-```
+1. **Clone the Repository**
 
-### For iOS
+   ```bash
+   git clone https://github.com/yourusername/flip-transaction-app.git
+   ```
 
-```bash
-# using npm
-npm run ios
+2. **Navigate to the Project Directory**
 
-# OR using Yarn
-yarn ios
-```
+   ```bash
+   cd flip-transaction-app
+   ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+3. **Install Dependencies**
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Step 3: Modifying your App
+4. **Link Native Dependencies (If Required)**
 
-Now that you have successfully run the app, let's modify it.
+   ```bash
+   npx react-native link
+   ```
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+5. **Start the Metro Bundler**
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+   ```bash
+   npx react-native start
+   ```
 
-## Congratulations! :tada:
+6. **Run the Application**
 
-You've successfully run and modified your React Native App. :partying_face:
+   - For **iOS**:
 
-### Now what?
+     ```bash
+     npx react-native run-ios
+     ```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+   - For **Android**:
 
-# Troubleshooting
+     ```bash
+     npx react-native run-android
+     ```
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Usage
 
-# Learn More
+- **Search Transactions**: Use the search bar to filter transactions based on name, bank, or amount.
+- **Sort Transactions**: Click on the "Urutkan" button to open the sorting modal and select a sort option.
+- **View Transaction Details**: Tap on any transaction in the list to view detailed information.
 
-To learn more about React Native, take a look at the following resources:
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## License
+
+This project is licensed under the **MIT License**.
+
+---
